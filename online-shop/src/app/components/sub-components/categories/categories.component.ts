@@ -11,7 +11,9 @@ import { CategoryService } from 'src/app/services/category.service';
 export class CategoriesComponent implements OnInit {
   categories: Array<Category> = [];
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService) {
+    
+  }
 
   ngOnInit(): void {
     this.categories = this.categoryService.getCategories();

@@ -1,3 +1,19 @@
 [In Home Component]
 Create Featured Products Component and Its subcomponents (with services and needed data)
 Create Recent Products Component and Its subcomponents (with services and needed data)
+create addToLiked function inside product component
+implement detail page to view single product details
+
+Final Project
+Implement add order task
+
+
+[To cover in course]
+Shared Service (Shopping Cart)
+Filter (logic and implementation)
+
+True API
+Login / Logout
+Guard special routes
+Forms
+Publish IIS/Apache - subfolder - shared hosting

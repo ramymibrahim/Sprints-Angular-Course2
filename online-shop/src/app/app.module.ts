@@ -16,6 +16,13 @@ import { CheckoutComponent } from './components/views/checkout/checkout.componen
 import { ContactComponent } from './components/views/contact/contact.component';
 import { CategoriesComponent } from './components/sub-components/categories/categories.component';
 import { CategoryComponent } from './components/sub-components/category/category.component';
+import { ProductsComponent } from './components/sub-components/products/products.component';
+import { ProductComponent } from './components/sub-components/product/product.component';
+import { RatingComponent } from './components/sub-components/rating/rating.component';
+import { ShopSortComponent } from './components/shop-sort/shop-sort.component';
+import { ShopFilterComponent } from './components/shop-filter/shop-filter.component';
+import { ShopProductsComponent } from './components/shop-products/shop-products.component';
+import { ShopPaginationComponent } from './components/shop-pagination/shop-pagination.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +38,13 @@ import { CategoryComponent } from './components/sub-components/category/category
     ContactComponent,
     CategoriesComponent,
     CategoryComponent,
+    ProductsComponent,
+    ProductComponent,
+    RatingComponent,
+    ShopSortComponent,
+    ShopFilterComponent,
+    ShopProductsComponent,
+    ShopPaginationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
