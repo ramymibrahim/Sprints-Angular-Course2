@@ -13,12 +13,19 @@ export class ShopProductsComponent implements OnInit {
   @Input() colors: Array<string> = [];
   @Input() priceRange: Array<PriceRange> = [];
   @Input() page: number = 0;
+
+  products: Array<Product> = [];
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe((data: any) => {
+      this.products = data.data;
+    });
+  }
 
   getProducts(): Array<Product> {
     return this.productService.getProductsWithFilter(
+      this.products,
       this.sizes,
       this.colors,
       this.priceRange,

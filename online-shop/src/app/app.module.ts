@@ -5,7 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app-component/app.component';
 import { ImageComponentComponent } from './components/image-component/image-component.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
 import { HomeComponent } from './components/views/home/home.component';
@@ -23,6 +23,8 @@ import { ShopSortComponent } from './components/shop-sort/shop-sort.component';
 import { ShopFilterComponent } from './components/shop-filter/shop-filter.component';
 import { ShopProductsComponent } from './components/shop-products/shop-products.component';
 import { ShopPaginationComponent } from './components/shop-pagination/shop-pagination.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +47,16 @@ import { ShopPaginationComponent } from './components/shop-pagination/shop-pagin
     ShopFilterComponent,
     ShopProductsComponent,
     ShopPaginationComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

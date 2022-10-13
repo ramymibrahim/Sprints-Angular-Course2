@@ -1,11 +1,15 @@
 export interface Product {
-  id: number;
+  _id: number;
   name: string;
-  imageUrl: string;
+  image: string;
+  category_id: string;
   price: number;
   discount: number;
   rating: number;
-  ratingCount: number;
-  size:string;
-  color:string;
+  rating_count: number;
+  is_featured: boolean;
+  is_recent: boolean;
+  description: string;
+  size: string;
+  color: string;
 }

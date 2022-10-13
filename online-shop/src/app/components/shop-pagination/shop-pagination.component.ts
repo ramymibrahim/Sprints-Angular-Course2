@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PriceRange } from 'src/app/interfaces/price-range';
+import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -14,13 +15,19 @@ export class ShopPaginationComponent implements OnInit {
   @Output() changePage = new EventEmitter<number>();
 
   page: number = 0;
+  products: Array<Product> = [];
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe((data: any) => {
+      this.products = data.data;
+    });
+  }
 
   getPageCount(): number {
     const pageCount = Math.ceil(
       this.productService.getProductsCountWithFilter(
+        this.products,
         this.sizes,
         this.colors,
         this.priceRange

@@ -7,7 +7,7 @@ export class Order {
   }
   addProduct(product: Product) {
     let currentProduct = this.orderDetails.find(
-      (x) => x.product.id == product.id
+      (x) => x.product._id == product._id
     );
     if (currentProduct != null) currentProduct.incQuantity();
     else this.orderDetails.push(new OrderDetail(product));
