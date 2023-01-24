@@ -12,16 +12,15 @@ import Validation from './confirmed.validator';
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup(
     {
-      first_name: new FormControl('', [Validators.required]),
-      last_name: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
       ]),
-      password_confirm: new FormControl('', [Validators.required]),
+      password_confirmation: new FormControl('', [Validators.required]),
     },
-    { validators: [Validation.match('password', 'password_confirm')] }
+    { validators: [Validation.match('password', 'password_confirmation')] }
   );
   constructor(private authService: AuthService, private router: Router) {}
 

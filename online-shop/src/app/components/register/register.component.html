@@ -2,10 +2,10 @@
   <div class="row">
     <form (ngSubmit)="register()" [formGroup]="registerForm">
       <div class="col-6">
-        <input placeholder="First Name" formControlName="first_name" />
+        <input placeholder="Name" formControlName="name" />
       </div>
-      <div class="col-6">
-        <input placeholder="Last Name" formControlName="last_name" />
+      <div class="col-12">
+        <input placeholder="Email" formControlName="email" type="email" />
       </div>
       <div class="col-6">
         <input
@@ -17,19 +17,15 @@
       <div class="col-6">
         <input
           placeholder="Password Confirm"
-          formControlName="password_confirm"
+          formControlName="password_confirmation"
           type="password"
         />
       </div>
-      <div class="col-12">
-        <input placeholder="Email" formControlName="email" type="email" />
-      </div>
-
       <button class="btn btn-success" [disabled]="!registerForm.valid">
         Register
       </button>
 
-      {{ registerForm.controls["password_confirm"].errors | json }}
+      {{ registerForm.controls["password_confirmation"].errors | json }}
     </form>
   </div>
 </div>

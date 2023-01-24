@@ -244,7 +244,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://warm-mesa-88190.herokuapp.com/api/categories",
+							"raw": "https://warm-mesa-88190.herokuapp.com/api/categories/",
 							"protocol": "https",
 							"host": [
 								"warm-mesa-88190",
@@ -253,7 +253,8 @@
 							],
 							"path": [
 								"api",
-								"categories"
+								"categories",
+								""
 							]
 						}
 					},
@@ -302,7 +303,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\":\"Ramy\",\r\n    \"last_name\":\"Ibrahim\",\r\n    \"email\":\"ramymibrahim@yahoo.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"first_name\":\"Ramy1\",\r\n    \"last_name\":\"Ibrahim1\",\r\n    \"email\":\"ramymibrahim1@yahoo.com\",\r\n    \"password\":\"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

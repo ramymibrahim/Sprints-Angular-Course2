@@ -18,7 +18,7 @@ export class ProductService {
     page: number = 0,
     pageSize: number = 9
   ) {
-    products = products.filter((x) => {
+    products = products?.filter((x) => {
       return (
         this.filterSize(sizes, x) &&
         this.filterColor(colors, x) &&
@@ -34,14 +34,14 @@ export class ProductService {
     colors: Array<string>,
     priceRanges: Array<PriceRange>
   ): number {
-    products = products.filter((x) => {
+    products = products?.filter((x) => {
       return (
         this.filterSize(sizes, x) &&
         this.filterColor(colors, x) &&
         this.filterPrices(priceRanges, x)
       );
     });
-    return products.length;
+    return products?.length || 0;
   }
 
   filterSize(sizes: Array<string>, product: Product): boolean {

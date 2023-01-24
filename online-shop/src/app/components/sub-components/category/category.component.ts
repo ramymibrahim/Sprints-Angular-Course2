@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ImageService } from 'src/app/image.service';
 import { Category } from 'src/app/interfaces/category';
 
 @Component({
@@ -9,7 +10,8 @@ import { Category } from 'src/app/interfaces/category';
 export class CategoryComponent implements OnInit {
   @Input() category: Category = {} as Category;
   
-  constructor() {}
+  constructor(public imageService:ImageService) {}
 
   ngOnInit(): void {}
+  
 }

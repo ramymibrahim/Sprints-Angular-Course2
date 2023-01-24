@@ -10,14 +10,14 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(data: any) {
-    return this.httpClient.post(`${environment.APIUrl}users/login`, {
+    return this.httpClient.post(`${environment.APIUrl}login`, {
       email: data.username,
       password: data.password,
     });
   }
 
   register(data: any) {
-    return this.httpClient.post(`${environment.APIUrl}users/register`, data);
+    return this.httpClient.post(`${environment.APIUrl}register`, data);
   }
 
   saveLoginData(data: any) {
@@ -33,11 +33,11 @@ export class AuthService {
   }
 
   getToken(): string {
-    return this.loadLoginData()?.token;
+    return this.loadLoginData()?.api_token;
   }
 
   getName(): string {
-    return this.loadLoginData()?.first_name;
+    return this.loadLoginData()?.name;
   }
 
   logOut() {

@@ -25,6 +25,9 @@ import { ShopProductsComponent } from './components/shop-products/shop-products.
 import { ShopPaginationComponent } from './components/shop-pagination/shop-pagination.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AdminCategoriesComponent } from './components/admin/admin-categories/admin-categories.component';
+import { AdminComponent } from './components/admin/admin/admin.component';
+import { SiteComponent } from './components/site/site.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,9 @@ import { RegisterComponent } from './components/register/register.component';
     ShopPaginationComponent,
     LoginComponent,
     RegisterComponent,
+    AdminCategoriesComponent,
+    AdminComponent,
+    SiteComponent
   ],
   imports: [
     BrowserModule,

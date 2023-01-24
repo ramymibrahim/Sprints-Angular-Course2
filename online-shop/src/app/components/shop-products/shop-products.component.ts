@@ -19,7 +19,7 @@ export class ShopProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: any) => {
-      this.products = data.data;
+      this.products = data;
     });
   }
 
