@@ -14,12 +14,10 @@
       <td>{{ category.name }}</td>
       <td><img src="{{ category.image }}" width="150" height="150" /></td>
       <td>
-        <button class="btn btn-primary" (click)="edit(category.id)">
-          Edit
-        </button>
+        <button class="btn btn-primary" (click)="edit(category)">Edit</button>
       </td>
       <td>
-        <button class="btn btn-danger" (click)="delete(category.id)">
+        <button class="btn btn-danger" (click)="delete(category)">
           Delete
         </button>
       </td>
@@ -36,23 +34,98 @@
   >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <form
+        (ngSubmit)="submit()"
+        [formGroup]="form"
+        enctype="multipart/form-data"
+      >
+        <div class="modal-header">
+          <h5 class="modal-title">{{ title }}</h5>
+          <button
+            [disabled]="disabled"
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="hideModal()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input
+            class="form-control"
+            formControlName="name"
+            placeholder="Name"
+          />
+          <img
+            src="{{ currentItem.image }}"
+            width="150"
+            height="150"
+            *ngIf="currentItem.image != null"
+          />
+          <input type="file" (change)="handleFile($event)" />
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" [disabled]="disabled">
+            Save changes
+          </button>
+          <button
+            [disabled]="disabled"
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="hideModal()"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: showDeleteModal }"
+>
+  >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">{{ title }}</h5>
         <button
+          [disabled]="disabled"
           type="button"
           class="close"
           data-dismiss="modal"
           aria-label="Close"
+          (click)="hideDeleteModal()"
         >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <p>Are you sure?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button
+          class="btn btn-danger"
+          [disabled]="disabled"
+          type="button"
+          (click)="destory()"
+        >
+          Delete
+        </button>
+        <button
+          [disabled]="disabled"
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="hideDeleteModal()"
+        >
           Close
         </button>
       </div>

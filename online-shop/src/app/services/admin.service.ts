@@ -10,15 +10,14 @@ export class AdminService<T> {
   public controller: string = '';
   constructor(protected http: HttpClient, protected authService: AuthService) {}
 
-  async add(item: T):Promise<boolean> {
-    return await this.http
+  async add(item: FormData): Promise<boolean> {
+    return (await this.http
       .post(`${environment.APIUrl}${this.controller}`, item, {
         headers: {
           Authorization: `Bearer ${this.authService.getToken()}`,
-          'Content-Type': 'application/json',
         },
       })
-      .toPromise() as boolean;
+      .toPromise()) as boolean;
   }
 
   async get(): Promise<T[]> {
@@ -43,20 +42,10 @@ export class AdminService<T> {
       .toPromise()) as T;
   }
 
-  async update(id: number, item: T): Promise<boolean> {
-    return (await this.http
-      .get(`${environment.APIUrl}${this.controller}`, {
-        headers: {
-          Authorization: `Bearer ${this.authService.getToken()}`,
-          'Content-Type': 'application/json',
-        },
-      })
-      .toPromise()) as boolean;
-  }
 
   async delete(id: number): Promise<boolean> {
     return (await this.http
-      .get(`${environment.APIUrl}${this.controller}`, {
+      .delete(`${environment.APIUrl}${this.controller}/${id}`, {
         headers: {
           Authorization: `Bearer ${this.authService.getToken()}`,
           'Content-Type': 'application/json',
